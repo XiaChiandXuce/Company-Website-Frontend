@@ -1,0 +1,35 @@
+.infoSection {
+    background-color: var(--color-bg);
+    padding-bottom: var(--spacing-8);
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-12);
+}
+
+.infoCard {
+    text-align: center;
+}
+
+.icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-4);
+}
+
+.title {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-bold);
+    margin-bottom: var(--spacing-2);
+}
+
+.text {
+    color: var(--color-text-muted);
+}
+
+.subtext {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+}

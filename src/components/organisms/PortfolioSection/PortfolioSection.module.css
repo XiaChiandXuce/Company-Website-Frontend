@@ -93,6 +93,7 @@
 .tag {
     padding: 4px 12px;
     background: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
     border-radius: var(--radius-full);
     font-size: var(--text-xs);

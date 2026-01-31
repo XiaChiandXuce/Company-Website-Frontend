@@ -17,9 +17,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     styles.inputWrapper,
                     error && styles.hasError,
                     styles[variant],
+                    fullWidth ? styles.fullWidth : styles.defaultWidth,
                     className
                 )}
-                style={{ maxWidth: fullWidth ? '100%' : '320px' }}
             >
                 {label && <label className={styles.label} htmlFor={props.id}>{label}</label>}
 
