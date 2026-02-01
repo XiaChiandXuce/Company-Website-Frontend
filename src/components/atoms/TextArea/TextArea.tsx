@@ -17,9 +17,9 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
                     styles.wrapper,
                     error && styles.hasError,
                     styles[variant],
+                    fullWidth ? styles.fullWidth : styles.defaultWidth,
                     className
                 )}
-                style={{ maxWidth: fullWidth ? '100%' : '320px' }}
             >
                 {label && <label className={styles.label} htmlFor={props.id}>{label}</label>}
 

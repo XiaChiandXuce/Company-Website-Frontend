@@ -2,6 +2,7 @@
 import { Container } from '../components/layout/Container';
 import { Card } from '../components/molecules/Card/Card';
 import { Button } from '../components/atoms/Button/Button';
+import styles from './ServicesPage.module.css';
 
 const servicesList = [
     {
@@ -32,51 +33,36 @@ const servicesList = [
 
 export default function ServicesPage() {
     return (
-        <div className="services-page">
+        <div className={styles.page}>
             <PageHeader
                 title="Our Capabilities"
                 subtitle="We offer a comprehensive suite of software development services designed to help you navigate the digital landscape and achieve your business goals."
             />
 
-            <section style={{ padding: 'var(--spacing-16) 0' }}>
+            <section className={styles.servicesSection}>
                 <Container>
-                    <div style={{ display: 'grid', gap: 'var(--spacing-12)' }}>
+                    <div className={styles.servicesGrid}>
                         {servicesList.map((service, index) => (
-                            <Card key={index} variant="glass" padding="lg" hoverable style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
-                                <div style={{
-                                    width: '64px',
-                                    height: '64px',
-                                    borderRadius: 'var(--radius-lg)',
-                                    background: 'var(--color-surface-hover)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    fontSize: '2rem'
-                                }}>
+                            <Card key={index} variant="glass" padding="lg" hoverable className={styles.serviceCard}>
+                                <div className={styles.iconContainer}>
                                     {service.icon}
                                 </div>
                                 <div>
-                                    <h2 style={{ fontSize: 'var(--text-3xl)', marginBottom: 'var(--spacing-4)' }}>{service.title}</h2>
-                                    <p style={{ color: 'var(--color-text-muted)', fontSize: 'var(--text-lg)', lineHeight: 1.6, marginBottom: 'var(--spacing-6)' }}>
+                                    <h2 className={styles.title}>{service.title}</h2>
+                                    <p className={styles.description}>
                                         {service.description}
                                     </p>
 
-                                    <h4 style={{ fontWeight: 'var(--weight-semibold)', marginBottom: 'var(--spacing-3)' }}>Key Features:</h4>
-                                    <ul style={{
-                                        display: 'grid',
-                                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                                        gap: 'var(--spacing-2)',
-                                        listStyle: 'none',
-                                        padding: 0
-                                    }}>
+                                    <h4 className={styles.featuresTitle}>Key Features:</h4>
+                                    <ul className={styles.featuresList}>
                                         {service.features.map(feature => (
-                                            <li key={feature} style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)', color: 'var(--color-text-muted)' }}>
-                                                <span style={{ color: 'var(--color-primary)' }}>•</span> {feature}
+                                            <li key={feature} className={styles.featureItem}>
+                                                <span className={styles.bullet}>•</span> {feature}
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
-                                <div style={{ marginTop: 'auto', paddingTop: 'var(--spacing-4)' }}>
+                                <div className={styles.actionArea}>
                                     <Button variant="outline">Consult This Service</Button>
                                 </div>
                             </Card>
@@ -85,11 +71,11 @@ export default function ServicesPage() {
                 </Container>
             </section>
 
-            <section style={{ padding: 'var(--spacing-24) 0', background: 'var(--color-surface)' }}>
+            <section className={styles.ctaSection}>
                 <Container>
-                    <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-                        <h2 style={{ fontSize: 'var(--text-4xl)', marginBottom: 'var(--spacing-6)' }}>Need a Custom Solution?</h2>
-                        <p style={{ color: 'var(--color-text-muted)', fontSize: 'var(--text-lg)', marginBottom: 'var(--spacing-8)' }}>
+                    <div className={styles.ctaContent}>
+                        <h2 className={styles.ctaTitle}>Need a Custom Solution?</h2>
+                        <p className={styles.ctaText}>
                             We understand that every business is unique. Contact us today to discuss your specific requirements and how we can tailor our services to meet your needs.
                         </p>
                         <Button size="lg" variant="glow" onClick={() => window.location.href = '/contact'}>Get in Touch</Button>
@@ -99,4 +85,3 @@ export default function ServicesPage() {
         </div>
     );
 }
-
