@@ -1,0 +1,127 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--color-bg);
+}
+
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    transition: width 0.3s ease;
+    border-right: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    position: fixed;
+    height: 100vh;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContent {
+    flex: 1;
+    margin-left: 260px;
+    /* Width of sidebar */
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    /* Prevent flex child overflow */
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .mainContent {
+        margin-left: 0;
+    }
+}
+
+.header {
+    height: 64px;
+    border-bottom: 1px solid var(--color-border);
+    background-color: rgba(17, 24, 39, 0.8);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-6);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+
+.pageTitle {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.pageContent {
+    padding: var(--spacing-6);
+    flex: 1;
+}
+
+.userMenu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    cursor: pointer;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+}
+
+.username {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+}
+
+/* Sidebar Internal Styles */
+.sidebarHeader {
+    padding: var(--spacing-6);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.brand {
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-text);
+}
+
+.nav {
+    padding: var(--spacing-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.navItem {
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--color-text-muted);
+}
+
+.navItem:hover {
+    background-color: var(--color-surface-hover);
+    color: var(--color-text);
+}
+
+.navItemActive {
+    background-color: var(--color-surface-hover);
+    color: var(--color-text);
+    font-weight: var(--weight-medium);
+}

@@ -13,6 +13,7 @@ export default function MainLayout() {
                     <Link to="/portfolio">Portfolio</Link>
                     <Link to="/about">About</Link>
                     <Link to="/contact">Contact</Link>
+                    <Link to="/login" className={styles.portalLink}>Client Portal</Link>
                 </nav>
             </header>
 

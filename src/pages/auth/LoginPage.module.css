@@ -1,0 +1,162 @@
+/* Nebula Split Layout */
+.splitContainer {
+    display: grid;
+    /* Use minmax(0, 1fr) to prevent content blowout - standard Grid best practice */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    height: 100vh;
+    /* Fix: use 100% instead of 100vw to avoid scrollbar overflow on Windows */
+    width: 100%;
+    overflow: hidden;
+    background: #030712;
+    /* Fallback */
+}
+
+/* LEFT FACING: Visual Brand Zone */
+.visualPanel {
+    position: relative;
+    background: radial-gradient(circle at center, #1e1b4b, #030712);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: var(--spacing-12);
+    /* Ensure styles from HeroSection work here */
+    color: white;
+}
+
+/* Reusing grid and shapes in the visual panel */
+.grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+    mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    z-index: 1;
+    animation: float 20s infinite ease-in-out alternate;
+}
+
+.shape1 {
+    top: 20%;
+    left: 20%;
+    width: 400px;
+    height: 400px;
+    background: var(--color-secondary);
+    animation-delay: -5s;
+}
+
+.shape2 {
+    bottom: 20%;
+    right: 20%;
+    width: 500px;
+    height: 500px;
+    background: var(--color-accent);
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(40px, 60px) rotate(10deg);
+    }
+}
+
+.brandContent {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+.brandLogo {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--spacing-4);
+}
+
+.brandSlogan {
+    font-size: var(--text-xl);
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+/* RIGHT FACING: Interaction Zone */
+.formPanel {
+    background: #0a0a0a;
+    /* distinct from visual panel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: var(--spacing-8);
+}
+
+.backLink {
+    position: absolute;
+    top: var(--spacing-8);
+    right: var(--spacing-8);
+    /* Move to right top */
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    transition: var(--transition-fast);
+    z-index: 20;
+}
+
+.backLink:hover {
+    color: white;
+}
+
+.formWrapper {
+    width: 100%;
+    max-width: 420px;
+    z-index: 10;
+}
+
+/* Mobile Responsive */
+/* Adjusted breakpoint to 768px per standard tablet sizing */
+@media (max-width: 768px) {
+    .splitContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .visualPanel {
+        display: none;
+        /* Hide heavy visual panel */
+    }
+
+    .formPanel {
+        background: radial-gradient(circle at top right, #1e1b4b, #030712);
+        /* Restore gradient for mobile */
+    }
+
+    .backLink {
+        left: var(--spacing-6);
+        right: auto;
+    }
+}

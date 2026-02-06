@@ -1,10 +1,11 @@
 .header {
-    padding: 1rem 2rem;
-    border-bottom: 1px solid var(--color-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(10, 10, 15, 0.8);
+    padding: 1.5rem 4rem;
+    /* Increased padding */
+    background: rgba(10, 10, 20, 0.8);
+    /* Darker, transparent background like Deep Space */
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -14,11 +15,65 @@
 }
 
 .logo {
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
 }
 
 .nav {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.nav a:hover {
+    color: var(--color-text);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* Distinct style for Portal Link but consistent with design system */
+.portalLink {
+    color: var(--color-primary) !important;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.portalLink:hover {
+    background: rgba(99, 102, 241, 0.2) !important;
+    transform: translateY(-1px);
+}
+
+.portalLink::after {
+    display: none !important;
+    /* No underline for button-like link */
 }

@@ -1,0 +1,196 @@
+.card {
+    /* Nebula Split Design - Invisible Field */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+
+    padding: var(--spacing-4);
+    /* Reduced padding for cleaner look */
+    width: 100%;
+}
+
+.card:hover {
+    /* No hover effect on container */
+    box-shadow: none;
+}
+
+.card:hover {
+    /* Enhanced glow on hover */
+    box-shadow:
+        0 30px 60px -12px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 0 30px rgba(99, 102, 241, 0.05);
+    /* Subtle indigo tint */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-8);
+}
+
+.logoWrapper {
+    display: none;
+    /* Hidden by default on desktop (Split Layout handles it) */
+    justify-content: center;
+    margin-bottom: var(--spacing-4);
+}
+
+@media (max-width: 768px) {
+    .logoWrapper {
+        display: flex;
+        /* Show on mobile/tab */
+    }
+}
+
+.logo {
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.title {
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+    color: white;
+    margin-bottom: var(--spacing-2);
+}
+
+.textGradient {
+    background: linear-gradient(135deg, var(--color-primary) 30%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+:global(.dark) .textGradient,
+.textGradient {
+    background: linear-gradient(135deg, #fff 30%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-regular);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.label {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: var(--weight-semibold);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.input {
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-4);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    color: white;
+    font-size: var(--text-base);
+    transition: var(--transition-fast);
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+.submitButton {
+    width: 100%;
+    margin-top: var(--spacing-2);
+}
+
+.errorMessage {
+    background: rgba(239, 68, 68, 0.1);
+    color: #fca5a5;
+    padding: var(--spacing-3);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    text-align: center;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    overflow: hidden;
+    /* Important for height animation */
+}
+
+.footer {
+    margin-top: var(--spacing-8);
+    display: flex;
+    justify-content: center;
+}
+
+.demoHint {
+    text-align: center;
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.demoCredentials {
+    margin-top: var(--spacing-1);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 12px;
+    border-radius: 99px;
+    display: inline-block;
+}
+
+.demoCredentials code {
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+    margin: 0 4px;
+}
+
+.toggleContainer {
+    text-align: center;
+    width: 100%;
+}
+
+.toggleText {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.toggleButton {
+    background: none;
+    border: none;
+    color: #818cf8;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0;
+    font-size: inherit;
+    transition: color 0.2s ease;
+}
+
+.toggleButton:hover {
+    color: #a5b4fc;
+    text-decoration: underline;
+}
